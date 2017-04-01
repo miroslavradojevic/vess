@@ -540,7 +540,7 @@ public class Frangi {
         Gx.load(w, h, l, I, F, sig);
         Gx gx_jobs[] = new Gx[CPU_NR];
         for (int i = 0; i < gx_jobs.length; i++) {
-            gx_jobs[i] = new Gx(i*w/CPU_NR, (i+1)*w/CPU_NR);
+            gx_jobs[i] = new Gx(i*(w/CPU_NR), (i+1)*(w/CPU_NR));
             gx_jobs[i].start();
         }
         for (int i = 0; i < gx_jobs.length; i++) {
@@ -556,7 +556,7 @@ public class Frangi {
         Gy.load(w, h, l, F, K, sig);
         Gy gy_jobs[] = new Gy[CPU_NR];
         for (int i = 0; i < gy_jobs.length; i++) {
-            gy_jobs[i] = new Gy(i*h/CPU_NR, (i+1)*h/CPU_NR);
+            gy_jobs[i] = new Gy(i*(h/CPU_NR), (i+1)*(h/CPU_NR));
             gy_jobs[i].start();
         }
         for (int i = 0; i < gy_jobs.length; i++) {
@@ -571,7 +571,7 @@ public class Frangi {
         Gz.load(w, h, l, K, F, sig, zdist);
         Gz gz_jobs[] = new Gz[CPU_NR];
         for (int i = 0; i < gz_jobs.length; i++) {
-            gz_jobs[i] = new Gz(i*l/CPU_NR, (i+1)*l/CPU_NR);
+            gz_jobs[i] = new Gz(i*(l/CPU_NR), (i+1)*(l/CPU_NR));
             gz_jobs[i].start();
         }
         for (int i = 0; i < gz_jobs.length; i++) {
@@ -1096,9 +1096,12 @@ public class Frangi {
 
             for (int i = 0; i < eig_jobs.length; i++) {
 
+//                IJ.log("[" + (i*(w*h*l)/CPU_NR)   + " -- " + ((i+1)*(w*h*l)/CPU_NR)   + "] " + (i*(w*h*l)>Integer.MAX_VALUE) + "," + ((i+1)*(w*h*l)>Integer.MAX_VALUE));
+//                IJ.log("[" + (i*((w*h*l)/CPU_NR)) + " -- " + ((i+1)*((w*h*l)/CPU_NR)) + "] "+(w*h*l));
+
                 eig_jobs[i] = new Eigen3D(
-                        i*(w*h*l)/CPU_NR,
-                        (i+1)*(w*h*l)/CPU_NR,
+                        i    *((w*h*l)/CPU_NR),
+                        (i+1)*((w*h*l)/CPU_NR),
                         Dxx, Dxy, Dxz, Dyy, Dyz, Dzz,
                         alpha,
                         beta,

@@ -1,5 +1,7 @@
 package com.braincadet.vess;
 
+import ij.IJ;
+
 /**
  * <h1>Threaded implementation of the Eigen analysis.</h1>
  * Takes the Hessian derivatives of the 3d image stack as input,
@@ -125,6 +127,8 @@ public class Eigen3D extends Thread {
         int val;
 
         for (int i = n0; i < n1; ++i) {
+
+            if (i<0) IJ.log("error:  i<0         n0="+n0+", n1="+n1);
 
             Ma[0][0]=Dxx[i]; Ma[0][1]=Dxy[i]; Ma[0][2]=Dxz[i];
             Ma[1][0]=Dxy[i]; Ma[1][1]=Dyy[i]; Ma[1][2]=Dyz[i];
