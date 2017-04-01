@@ -185,7 +185,7 @@ public class Vess implements PlugIn {
 
         }
 
-        IJ.log("--");
+        IJ.log("---");
         IJ.log("source="+image_path);
         IJ.log("sigmas="+sigs);
 

@@ -7,14 +7,14 @@
 
 setBatchMode(true);
 
-sigmas = "2,4,6";
+sigmas = "4,8";
 
 // 3d
 alpha = 0.5;
 beta = 0.5;
 c = 500;
 zdist = 2.0;
-threaded3d = false;
+threaded3d = true;
 if (threaded3d) 		  threaded3d_arg 			= " threaded3d";	
 else 					  threaded3d_arg            = "";
 
@@ -26,7 +26,7 @@ dark_foreground = false;
 if (dark_foreground)      dark_foreground_arg      = " darkforeground";
 else    			      dark_foreground_arg      = "";
 
-calculate_directions = true;
+calculate_directions = false;
 if (calculate_directions) calculate_directions_arg = " directions";
 else                      calculate_directions_arg = "";
 
