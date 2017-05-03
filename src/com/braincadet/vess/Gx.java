@@ -1,5 +1,7 @@
 package com.braincadet.vess;
 
+import ij.IJ;
+
 /**
  * <h1>Threaded implementation of image Gaussian filtering along x-dim (image width).</h1>
  * Filtering along single dimension is used as a stage in the steered filtering implementation filtering sequence.
@@ -136,7 +138,8 @@ public class Gx extends Thread {
                         if (x>=0 && x<Math.min(Lxy,w))          i1 = clamp(x1, 0, w - 1);
                         else if (x>=Lxy && x<(w-Lxy))           i1 = x1;
                         else if (x>=Math.max(w-Lxy,Lxy) && x<w) i1 = clamp(x1, 0, w - 1);
-                        else                                    i1 = Integer.MIN_VALUE; // this is illegal case
+                        else                                   { i1 = Integer.MIN_VALUE;
+                            IJ.log("illegal case happens!");} // this is illegal case
 
                         i1 = i1 + (z*w*h+y*w);
 
