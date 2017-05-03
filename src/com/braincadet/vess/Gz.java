@@ -1,5 +1,7 @@
 package com.braincadet.vess;
 
+import ij.IJ;
+
 /**
  * <h1>Threaded implementation of image Gaussian filtering along z-dim (image stack size).</h1>
  * Filtering along single dimension is used as a stage in the steered filtering implementation filtering sequence.
@@ -137,7 +139,8 @@ public class Gz extends Thread {
                         if (z>=0 && z<Math.min(Lz,l))           i1 = clamp(z1,0,l-1)*w*h;
                         else if (z>=Lz && z<(l-Lz))             i1 = z1             *w*h;
                         else if (z>=Math.max(l-Lz,Lz) && z<l)   i1 = clamp(z1,0,l-1)*w*h;
-                        else                                    i1 = Integer.MIN_VALUE;  // this is illegal case
+                        else                                    {i1 = Integer.MIN_VALUE;
+                            IJ.log("illegal case hapened in Gz");}  // this is illegal case
 
                         i1 = i1 + (y*w+x);
 
