@@ -185,7 +185,7 @@ public class Vess implements PlugIn {
 
         }
 
-        IJ.log("---");
+        IJ.log("-----");
         IJ.log("source="+image_path);
         IJ.log("sigmas="+sigs);
 
@@ -201,7 +201,7 @@ public class Vess implements PlugIn {
 
         IJ.log("BetaOne="+BetaOne);
         IJ.log("BetaTwo="+BetaTwo);
-        IJ.log("--");
+        IJ.log("-----");
 
         String delindir;
 
@@ -228,8 +228,11 @@ public class Vess implements PlugIn {
         }
 
         outdir      = imdir + delindir; // imnameshort + "_vess" + File.separator;
+
+        if (saveoutput) {
 //        createAndCleanDir(outdir);
-        createDir(outdir);
+            createDir(outdir);
+        }
 
         String[] readLn = sigs.trim().split(","); // read vesselness scales into list
         sig.clear();
