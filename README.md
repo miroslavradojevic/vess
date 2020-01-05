@@ -12,7 +12,3 @@ The ImageJ plugin computing Fringe's vesselness and local vessleness direction f
 * Open ImageJ > Plugins > BrainCadet > Vess
 * select file (works with 8bit images and image stacks)
 * enter values in the parameter menu
-
-
-### Release ###
-[vess_1.0.0.jar](https://bitbucket.org/miroslavradojevic/vess/downloads/vess_1.0.0.jar) 
